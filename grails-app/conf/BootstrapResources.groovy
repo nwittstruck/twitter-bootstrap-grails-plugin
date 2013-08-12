@@ -42,18 +42,9 @@ modules = {
         resource id: 'bootstrap-css', url:[plugin: 'twitter-bootstrap', dir: 'css', file: (dev ? cssFile : cssminFile)], disposition: 'head', exclude:'minify'
     }
 
-    'bootstrap-responsive-css' {
-        defaultBundle configDefaultBundle
-        dependsOn 'bootstrap-css'
-
-        resource id: 'bootstrap-responsive-css', url:[plugin: 'twitter-bootstrap', dir: 'css', file: (dev ? 'bootstrap-responsive.css' : 'bootstrap-responsive.min.css')], disposition: 'head', exclude:'minify'
-    }
-    
-    'bootstrap-responsive-less' {
-	dependsOn 'bootstrap-less'
-	resource id: 'bootstrap-responsive-less', url:[plugin: 'twitter-bootstrap', dir: 'less', file: 'responsive.less'], attrs:[rel: "stylesheet/less", type:'css']
-    }
-
+    /**
+    * Bootstrap JS resources
+    */
 
     'bootstrap-alert' {
         defaultBundle configDefaultBundle
@@ -61,16 +52,35 @@ modules = {
             dependsOn 'jquery'
         }
 
-        resource id: 'bootstrap-alert', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'bootstrap-alert.js']
+        resource id: 'bootstrap-alert', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'alert.js']
     }
 
-    'bootstrap-affix' {
+    'bootstrap-button' {
+        defaultBundle configDefaultBundle
+        if (jqueryPlugin) {
+            dependsOn "jquery"
+        }
+        
+        resource id: 'bootstrap-button', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'button.js']
+    }
+
+    'bootstrap-carousel' {
         defaultBundle configDefaultBundle
         if (jqueryPlugin) {
             dependsOn "jquery"
         }
 
-        resource id: 'bootstrap-affix', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'bootstrap-affix.js']
+        resource id: 'bootstrap-carousel', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'carousel.js']
+    }
+
+    'bootstrap-collapse' {
+        defaultBundle configDefaultBundle
+        dependsOn 'bootstrap-transition'
+        if (jqueryPlugin) {
+            dependsOn "jquery"
+        }
+
+        resource id: 'bootstrap-collapse', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'collapse.js']
     }
 
     'bootstrap-dropdown' {
@@ -79,7 +89,7 @@ modules = {
             dependsOn 'jquery'
         }
 
-        resource id: 'bootstrap-dropdown', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'bootstrap-dropdown.js']
+        resource id: 'bootstrap-dropdown', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'dropdown.js']
     }
 
     'bootstrap-modal' {
@@ -88,7 +98,7 @@ modules = {
             dependsOn 'jquery'
         }
         
-        resource id: 'bootstrap-modal', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'bootstrap-modal.js']
+        resource id: 'bootstrap-modal', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'modal.js']
     }
 
     'bootstrap-popover' {
@@ -99,7 +109,7 @@ modules = {
             dependsOn 'jquery'
         }
 
-        resource id: 'bootstrap-popover', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'bootstrap-popover.js']
+        resource id: 'bootstrap-popover', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'popover.js']
     }
 
     'bootstrap-scrollspy' {
@@ -108,7 +118,7 @@ modules = {
             dependsOn 'jquery'
         }
         
-        resource id: 'bootstrap-scrollspy', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'bootstrap-scrollspy.js']
+        resource id: 'bootstrap-scrollspy', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'scrollspy.js']
     }
 
     'bootstrap-tab' {
@@ -117,7 +127,7 @@ modules = {
             dependsOn "jquery"
         }
         
-        resource id: 'bootstrap-tab', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'bootstrap-tab.js']
+        resource id: 'bootstrap-tab', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'tab.js']
     }
 
     'bootstrap-tooltip' {
@@ -126,43 +136,7 @@ modules = {
             dependsOn "jquery"
         }
         
-        resource id: 'bootstrap-tooltip', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'bootstrap-tooltip.js']
-    }
-
-    'bootstrap-button' {
-        defaultBundle configDefaultBundle
-        if (jqueryPlugin) {
-            dependsOn "jquery"
-        }
-        
-        resource id: 'bootstrap-button', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'bootstrap-button.js']
-    }
-
-    'bootstrap-carousel' {
-        defaultBundle configDefaultBundle
-        if (jqueryPlugin) {
-            dependsOn "jquery"
-        }
-
-        resource id: 'bootstrap-carousel', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'bootstrap-carousel.js']
-    }
-
-    'bootstrap-typeahead' {
-        defaultBundle configDefaultBundle
-        if (jqueryPlugin) {
-            dependsOn "jquery"
-        }
-
-        resource id: 'bootstrap-typeahead', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'bootstrap-typeahead.js']
-    }
-
-    'bootstrap-collapse' {
-        defaultBundle configDefaultBundle
-        if (jqueryPlugin) {
-            dependsOn "jquery"
-        }
-
-        resource id: 'bootstrap-collapse', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'bootstrap-collapse.js']
+        resource id: 'bootstrap-tooltip', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'tooltip.js']
     }
 
     'bootstrap-transition' {
@@ -170,8 +144,8 @@ modules = {
         if (jqueryPlugin) {
             dependsOn "jquery"
         }
-
-        resource id: 'bootstrap-transition', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'bootstrap-transition.js']
+        
+        resource id: 'bootstrap-transition', url:[plugin: 'twitter-bootstrap', dir: 'js', file: 'transition.js']
     }
 
     'bootstrap-js' {
@@ -179,7 +153,7 @@ modules = {
         if (jqueryPlugin) {
             dependsOn 'jquery'
         }
-        dependsOn 'bootstrap-transition,bootstrap-alert,bootstrap-dropdown,bootstrap-modal,bootstrap-scrollspy,bootstrap-tab,bootstrap-tooltip,bootstrap-popover,bootstrap-button,bootstrap-carousel,bootstrap-typeahead,bootstrap-collapse,bootstrap-affix'
+        dependsOn 'bootstrap-alert,bootstrap-button,bootstrap-carousel,bootstrap-collapse,bootstrap-dropdown,bootstrap-modal,bootstrap-popover,bootstrap-scrollspy,bootstrap-tab,bootstrap-tooltip,bootstrap-transition'
     }
 
     'bootstrap-less' {
