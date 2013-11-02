@@ -1,11 +1,11 @@
-Grails plugin: Twitter Bootstrap CSS framework resource files
+Grails plugin: Bootstrap CSS framework resource files
 ===============================================
 
-Provides Twitter Bootstrap CSS framework resource files.
+Provides Bootstrap CSS framework resource files.
 
-Bootstrap is Twitter's toolkit for kickstarting CSS for websites, apps, and more. It includes base CSS styles for typography, forms, buttons, tables, grids, navigation, alerts, and more.
+Bootstrap is a toolkit for kickstarting CSS for websites, apps, and more. It includes base CSS styles for typography, forms, buttons, tables, grids, navigation, alerts, and more.
 
-To get started -- checkout http://twitter.github.com/bootstrap!
+To get started -- checkout http://twbs.github.io/bootstrap !
 
 Including the resources
 ------------------------
@@ -52,7 +52,7 @@ console.log("My javascript goes here");
 Stylesheet (CSS):
 ```css
 /*
-*= require boostrap
+*= require bootstrap
 */
 ```
 **Note:** LESS Is also available if less-asset-pipeline plugin is used.
@@ -125,7 +125,7 @@ Add 'custom-bootstrap' resource module to Config.groovy:
     }
 
 Prepare customized variables.less file and copy to /web-app/less/ directory. You can use original variables.less
-as base file (https://github.com/twitter/bootstrap/blob/v2.0.2/less/variables.less).
+as base file (https://github.com/twbs/bootstrap/blob/v2.0.2/less/variables.less).
 
 
 Config.groovy
@@ -183,6 +183,9 @@ See http://getbootstrap.com/css/ for the updated documentation.
 
 History
 -------
+3.0.1
+- Upgraded to Bootstrap 3.0.1
+
 3.0.0
 - Upgraded to Bootstrap 3.0.0
 
@@ -257,7 +260,7 @@ twitter-bootstrap plugin:
    limitations under the License.
 
 
-Twitter Bootstrap CSS files:
+Bootstrap CSS files:
 
     Copyright 2011 Twitter, Inc.
 
